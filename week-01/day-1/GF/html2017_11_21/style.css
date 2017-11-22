@@ -1,0 +1,49 @@
+
+header{
+    font-family: 'Bitter', serif;
+    background: #333333;
+}
+
+
+span{
+    float: right;
+    padding: 10px 10% 10px 10%;
+    
+}
+
+.navik{
+    color:#ff0099;
+    padding:0 0 0 10px;
+    
+}
+#logo{
+    padding: 0 10% 0 10%;
+}
+
+.content{
+    padding: 0 10% 0 10%;
+}
+
+body{
+    background-image: url("topography.png");
+    margin: 0;
+    font-family: 'consolas', courier;
+}
+h1, h3{
+    font-family: 'Bitter', serif;
+}
+
+#pinky{
+color: #ff0099;
+font-family: 'Bitter', serif;
+}
+
+h2{
+    text-align: center;
+    font-family: 'Bitter', serif;
+}
+
+#dash{
+    text-align: center;
+    padding: 2%;
+}
