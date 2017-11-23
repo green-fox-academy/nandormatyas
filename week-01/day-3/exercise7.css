@@ -1,0 +1,17 @@
+.asteroid.big{
+  color:blue;
+}
+
+
+div:first-child{
+  border: 1px solid green;
+  
+}
+
+div:nth-child(2n+1){
+  font-weight: bold;
+}
+
+p{
+  background: yellow;
+}

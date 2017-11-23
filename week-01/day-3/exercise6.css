@@ -1,0 +1,32 @@
+ p {
+  width: 120px;
+  height: 120px;
+  background: lightblue;
+  -moz-border-radius: 60px;
+  -webkit-border-radius: 60px;
+  border-radius: 60px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration-color: white;
+}
+
+
+
+p:nth-child(1) {
+  width: 120px;
+  height: 120px;
+  background: purple;
+  -moz-border-radius: 60px;
+  -webkit-border-radius: 60px;
+  border-radius: 60px;
+}
+
+p:nth-child(7) {
+  width: 120px;
+  height: 120px;
+  background: orange;
+  -moz-border-radius: 60px;
+  -webkit-border-radius: 60px;
+  border-radius: 60px;
+}
