@@ -1,0 +1,22 @@
+h1{
+color: darkorange;
+
+}
+
+h2{
+
+color:rgb(119, 53, 180);
+
+}
+
+ol{
+  color:magenta;
+  text-decoration-line: underline;
+}
+
+ol > li:last-child{
+
+  color:black;
+  text-decoration-line: underline;
+  
+}
