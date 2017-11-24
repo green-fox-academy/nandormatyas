@@ -1,0 +1,29 @@
+
+
+.circle {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  padding: 24px;
+  border-radius: 50%;
+  font-size: 50px;
+  color: #fff;
+  line-height: 94px;
+  text-align: center;
+  background: lightblue;
+  
+  
+}
+
+div:nth-child(1) {
+  
+    background: purple;
+  }
+div:nth-child(7) {
+  
+    background: orange;
+  }
+
+
+  
+  
