@@ -1,0 +1,233 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+.container{
+  box-sizing: content-box;
+  width: 624px;
+  height: 785px;
+  background: green;
+  margin: auto;
+}
+
+.form1{
+  position:  relative;
+  top: 12px;
+  box-sizing: border-box;
+  width: 624px;
+  height: 44px;
+  border: 10px solid red;
+  background: yellow;
+  
+ 
+  
+}
+
+.form2{
+  display:block;
+  
+  box-sizing: border-box;
+  position: absolute;
+  top: 70px;
+  left: 170px;
+  width: 312px;
+  height: 435px;
+  margin: 0;
+  border: 10px solid red;
+  background: yellow;
+ 
+}
+
+.form3{
+  display:block;
+  left:482px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 70px;
+  width: 312px;
+  height: 435px;
+  margin: 0;
+  border: 10px solid red;
+  background: yellow;
+ 
+}
+
+
+
+.form4{
+  display: block;
+  position: absolute;
+  bottom: 30px;
+  box-sizing: border-box;
+  width: 624px;
+  height: 185px;
+  border: 10px solid red;
+  background: yellow;
+  
+}
+
+.form2_1{
+  display:block;
+  position: absolute;
+  box-sizing: border-box;
+  width: 200px;
+  height: 30px;
+  border: 1px solid black;
+  top: 96px;
+  left: 195px;
+
+}
+
+.form2_2{
+  display:block;
+  position: absolute;
+  box-sizing: border-box;
+  width: 200px;
+  height: 30px;
+  border: 1px solid black;
+  top: 136px;
+  left: 195px;
+
+}
+
+.form2_3{
+  display:block;
+  position: absolute;
+  box-sizing: border-box;
+  width: 100px;
+  height: 30px;
+  border: 1px solid black;
+  top: 185px;
+  left: 195px;
+
+}
+
+.form2_4{
+  display:block;
+  position: absolute;
+  box-sizing: border-box;
+  width: 100px;
+  height: 30px;
+  border: 1px solid black;
+  top: 185px;
+  left: 311px;
+
+}
+
+.form2_5{
+  display:block;
+  position: absolute;
+  box-sizing: border-box;
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  top: 242px;
+  left: 195px;
+
+}
+
+.form3_1{
+  display:block;
+  position: absolute;
+  box-sizing: border-box;
+  width: 200px;
+  height: 30px;
+  border: 1px solid black;
+  top: 96px;
+  left: 533px;
+
+}
+
+.form3_2{
+  display:block;
+  position: absolute;
+  box-sizing: border-box;
+  width: 200px;
+  height: 30px;
+  border: 1px solid black;
+  top: 166px;
+  left: 533px;
+
+}
+
+.form3_3{
+  display:block;
+  position: absolute;
+  box-sizing: border-box;
+  width: 200px;
+  height: 30px;
+  border: 1px solid black;
+  top: 236px;
+  left: 533px;
+
+}
+
+.form3_4{
+  display:block;
+  position: absolute;
+  box-sizing: border-box;
+  width: 200px;
+  height: 30px;
+  border: 1px solid black;
+  top: 306px;
+  left: 533px;
+
+}
+
+.form3_5{
+  display:block;
+  position: absolute;
+  box-sizing: border-box;
+  width: 200px;
+  height: 30px;
+  border: 1px solid black;
+  top: 376px;
+  left: 533px;
+
+}
+
+.form3_6{
+  display:block;
+  position: absolute;
+  box-sizing: border-box;
+  width: 200px;
+  height: 30px;
+  border: 1px solid black;
+  top: 446px;
+  left: 533px;
+
+}
+
+.form4_1{
+  display:block;
+  position: absolute;
+  box-sizing: border-box;
+  width: 572px;
+  height: 65px;
+  border: 1px solid black;
+  top: 6px;
+  left: 4px;
+
+}
+
+input[type="radio"]{
+
+  display: inline;
+
+}
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
