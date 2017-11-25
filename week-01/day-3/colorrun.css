@@ -1,0 +1,52 @@
+div{
+
+width: 200px;
+height: 130px;
+display: block;
+border: 2px solid black;
+margin: 0 100px;
+text-align: center;
+align-self: center;
+}
+
+.top:hover {
+
+  background:green;
+}
+
+div:nth-child(2):hover{
+
+  background: orange;
+}
+
+div:nth-child(3):hover{
+
+  background:blue;
+}
+div:nth-child(4):hover{
+  
+    background:violet;
+  }
+div:nth-child(5):hover{
+    
+      background:yellowgreen;
+    }
+div:nth-child(6):hover{
+      
+        background:red;
+      }
+.bottom:hover{
+
+  background: brown;
+}
+
+.top{
+
+  border-top: 0;
+}
+
+.bottom{
+
+  border-bottom: 0;
+}
+
