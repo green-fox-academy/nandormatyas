@@ -1,0 +1,30 @@
+p{
+  display: inline-block;
+  border:1px;
+  background:blue;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+
+}
+div{
+
+  border: 10px solid blue;
+  width: 1236px;
+}
+
+.color{
+
+  background: orange;
+
+}
+
+span{
+  display: inline-block;
+  border:1px;
+  background:purple;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+
+}
