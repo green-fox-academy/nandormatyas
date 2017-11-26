@@ -33,7 +33,7 @@
   left: 170px;
   width: 312px;
   height: 435px;
-  margin: 0;
+  
   border: 10px solid red;
   background: yellow;
  
@@ -47,7 +47,7 @@
   top: 70px;
   width: 312px;
   height: 435px;
-  margin: 0;
+
   border: 10px solid red;
   background: yellow;
  
@@ -125,6 +125,10 @@
   top: 242px;
   left: 195px;
 
+}
+.form2_6{
+
+  column-count: 2;
 }
 
 .form3_1{
