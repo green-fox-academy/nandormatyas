@@ -12,4 +12,4 @@ a = (6 * 17 * 5)
 print(a)
 
 b = (17 *52)
-print(a / b)
+print((a / b) * 100) 
