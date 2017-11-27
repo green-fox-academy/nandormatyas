@@ -10,3 +10,16 @@
 # %%%%%
 #
 # The square should have as many lines as the number was
+
+number = int(input('enter number: '))
+space = " "
+percent = '%'
+a = 0
+print(percent * number + 2 * percent)
+
+while a < number:
+  print(percent + space * number + percent)
+
+  a += 1
+
+print(percent * number + 2 * percent)
