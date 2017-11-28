@@ -6,7 +6,7 @@ def sum():
   total = 0
   for i in range(0, ranges, 1):
    # print(i)
-    total += i
+    total += (i + 1)
   print(total)
 
 sum()
