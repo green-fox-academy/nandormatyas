@@ -10,9 +10,19 @@
 
 
 
-for r in range(4):
+''' for r in range(4):
      for c in range(4):
           print(int(c==r), end=" ")
      print()
+ '''
+
+a = [[0 for x in range(4)] for y in range(4)]
+for x in range(4):
+    for y in range(4):
+        if x==y:
+            a[x][y]=1
+    print(a[x])
+
+#print(a)
 
 
