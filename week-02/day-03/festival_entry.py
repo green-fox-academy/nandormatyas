@@ -36,8 +36,8 @@ def security_check():
         elif guns > 0:
             watchlist.append(name)
             security_alcohol_loot += alcohol
-            alcohol = 0
-            guns = 0        
+            i['alcohol']= 0
+            i['guns'] = 0        
             enter +=1   
             
 
@@ -45,7 +45,7 @@ def security_check():
         #for i in queue:        
         elif alcohol > 0:
             security_alcohol_loot += alcohol
-            alcohol = 0
+            i['alcohol'] = 0
             enter += 1
             
         
