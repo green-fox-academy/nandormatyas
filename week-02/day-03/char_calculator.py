@@ -15,3 +15,26 @@
 # Waits for the user input
 # Print the result
 # Exit
+
+inputs = input('Please type in the expression: ').split(" ")
+
+inputs[1] = float(inputs[1])
+inputs[2] = float(inputs[2])
+
+if inputs[0] == "+":
+    result = inputs[1] + inputs[2]
+elif inputs[0] == "-":
+    result = inputs[1] - inputs[2]
+elif inputs[0] == "*":
+    result = inputs[1] * inputs[2]
+elif inputs[0] == "/":
+    result = inputs[1] / inputs[2]
+elif inputs[0] == "%":
+    result = inputs[1] % inputs[2]
+
+
+
+
+print(result)
+
+
