@@ -33,26 +33,29 @@ def transfer():
 
     
     givemenumber = int(input('which account do you want to transfer from?: '))
-    for b in accounts:
-        if givemenumber == b.get('account_number'):
-            destination = input('where to would you like to transfer?: ')
-            amount = int(input('Amount: '))
-            execute = input('Wish to transfer?: y/n ')
-            if execute == 'y':
-                abl1 -= amount
-                abl2 += amount
-                print('Transaction complete')
-                break
-            else:
-                print('Transfer cancelled')
-                break
-                
-            print('Account1: ', abl1, 'Account2: ', abl2)
+    if givemenumber != anr1 or anr2 or anr3:
+        print('404 - account not found')
+        
+    else:
+        
 
-        elif givemenumber != b.get('account_number'):
-            print('404 - account not found')
-            break
+        for b in accounts:
+            if givemenumber == b.get('account_number'):
+                destination = input('where to would you like to transfer?: ')
+                amount = int(input('Amount: '))
+                execute = input('Wish to transfer?: y/n ')
+                if execute == 'y':
+                    abl1 -= amount
+                    abl2 += amount
+                    print('Transaction complete')
+                    break
+                else:
+                    print('Transfer cancelled')
+                    break
 
+                print('Account1: ', abl1, 'Account2: ', abl2)
+
+        
     
 transfer()
     
