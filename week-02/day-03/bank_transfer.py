@@ -22,7 +22,7 @@ def balance():
 
 balance()
 
-def transfer():
+''' def transfer():
     
     anr1 = int(accounts[0].get('account_number'))
     abl1 = int(accounts[0].get('balance'))
@@ -59,4 +59,4 @@ def transfer():
     
 transfer()
     
-        
+         '''
