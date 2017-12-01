@@ -6,12 +6,25 @@ It should take two strings and return a boolean value depending on whether its a
 a = input('First word: ')
 b = input('Second word: ')
 
+
 def anagram(a, b):
-    
-    if a == (b[::-1]):
+    a = a.replace(" ", "").lower()
+    b = b.replace(" ", "").lower()
+    alis = list()
+    blis = list()
+    for i in a:
+        alis.append(i)
+    for j in b:
+        blis.append(j)
+    alis = sorted(alis)
+    blis = sorted(blis)
+    print(alis, blis)
+    if alis == blis:
         return True
     else:
         return False
+
+
 
 print(anagram(a, b))
 
