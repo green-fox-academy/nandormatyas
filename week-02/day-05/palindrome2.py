@@ -16,13 +16,13 @@ def search_palindrome(a):
                 pali.append(x)
         y = y +1
             
-                
-        
     return pali
     
-
-
-
 print(search_palindrome(a))
+                
+        
+
+
+
 
 

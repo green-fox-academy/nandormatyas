@@ -21,6 +21,7 @@ def findnumber(n, ln):
     return found
 
 found = findnumber(find, inpu)
+
 indices = [inpu.index(j) for j in found]
 
 print(indices)

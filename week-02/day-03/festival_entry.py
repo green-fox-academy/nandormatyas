@@ -40,21 +40,21 @@ def security_check():
             i['guns'] = 0        
             enter +=1   
             
-
-
-        #for i in queue:        
         elif alcohol > 0:
             security_alcohol_loot += alcohol
             i['alcohol'] = 0
             enter += 1
             
+    return watchlist, security_alcohol_loot, enter, queue
         
+print(security_check())
                 
 
-    return watchlist, security_alcohol_loot, enter, queue
 
 
-print(security_check())
+
+
+          
 
 
 
