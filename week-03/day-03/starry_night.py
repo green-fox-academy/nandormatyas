@@ -15,7 +15,7 @@ def rgbhex(r,g,b):
 
    return '#%02x%02x%02x' % (r, g, b)
 
-for i in range(30):
+for i in range(80):
     starx = randint(10, 290) 
     stary = randint(10, 290)
     rgb = randint(10, 200)
