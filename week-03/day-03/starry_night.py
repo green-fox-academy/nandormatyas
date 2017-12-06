@@ -18,7 +18,7 @@ def rgbhex(r,g,b):
 for i in range(30):
     starx = randint(10, 290) 
     stary = randint(10, 290)
-    rgb = randint(10, 100)
+    rgb = randint(10, 200)
     color = rgbhex(rgb,rgb,rgb)
     stars = canvas.create_rectangle(starx, stary, starx + 3, stary + 3, fill = color)
 
