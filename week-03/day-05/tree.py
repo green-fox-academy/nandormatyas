@@ -2,7 +2,6 @@ import turtle
 
 t = turtle.Turtle(shape="turtle")
 t.lt(90)
-
 lv = 8
 l = 150
 s = 17

@@ -2,7 +2,7 @@ import turtle
 
 t = turtle.Turtle()
 ''' t = turtle.Turtle()'''
-screen = turtle.Screen() 
+screen = turtle.Screen()
 
 def koch(a, order):
     speed("fastest")
