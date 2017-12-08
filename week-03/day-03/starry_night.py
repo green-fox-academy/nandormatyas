@@ -3,7 +3,7 @@ from random import randint
 
 root = Tk()
 
-canvas = Canvas(root, width='300', height='300', bg = "black")
+canvas = Canvas(root, width='1980', height='1080', bg = "black")
 canvas.pack()
 
 # draw the night sky:
@@ -15,9 +15,9 @@ def rgbhex(r,g,b):
 
    return '#%02x%02x%02x' % (r, g, b)
 
-for i in range(80):
-    starx = randint(10, 290) 
-    stary = randint(10, 290)
+for i in range(2000):
+    starx = randint(10, 1970) 
+    stary = randint(10, 1070)
     rgb = randint(10, 200)
     color = rgbhex(rgb,rgb,rgb)
     stars = canvas.create_rectangle(starx, stary, starx + 3, stary + 3, fill = color)

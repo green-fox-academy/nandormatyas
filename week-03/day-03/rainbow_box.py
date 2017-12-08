@@ -18,4 +18,7 @@ def size_and_color(size, color):
 size = int(input('Size? '))
 color = input('Color? ')
 size_and_color(size, color)
+
+
+
 root.mainloop()
