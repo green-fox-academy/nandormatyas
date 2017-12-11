@@ -1,8 +1,8 @@
 class Station(object):
     gas_amount = 10000
-    def refill(self, Car):
+    def refill(self):
         x = car.capacity
-        self.gas_amount -= x
+        Station.gas_amount -= x
         car.gas_amountc += x
 
 
@@ -14,8 +14,8 @@ class Car(object):
         self.gas_amountc = gas_amountc
         self.capacity = capacity
 
-Station()
+station = Station()
 car = Car()
-
+station.refill()
 print(Station.gas_amount)
-#print(Car.gas_amountc)
+print(car.gas_amountc)
