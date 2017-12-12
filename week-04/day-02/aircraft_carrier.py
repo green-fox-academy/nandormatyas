@@ -22,15 +22,17 @@ class Aircraft():
         self.fillup = fillup
         for munition in range(fillup):
             while self.ammo < self.max_ammo and self.ammo < self.fillup:
-                self.ammo += 1
-        return fillup - self.ammo
+                if self.fillup != 0:
+                    self.ammo += 1
+                    fillup -= 1
+        return self.fillup
 
     def getType(self):
         return self.typo
 
 
     def getStatus(self, typo = None):
-        return 'Type: ' + str(self.typo) + ' Ammo: ' + str(self.ammo) + ' Base damage: ' + str(self.base_damage) + ' All damage: ' + str(self.ammo * self.base_damage) 
+        return 'Type: ' + self.typo + ' Ammo: ' + str(self.ammo) + ' Base damage: ' + str(self.base_damage) + ' All damage: ' + str(self.ammo * self.base_damage) 
 
 
 f35 = Aircraft(None, None, None, 'F35')
@@ -49,29 +51,82 @@ class Carrier():
         self.aircrafts = list()
         self.base_ammo = base_ammo
         self.health = health
-        self.base_ammo = 4000
+        self.base_ammo = 3000
         self.health = 10000
 
     def addAircraft(self, craft):
         self.craft = Aircraft(None, None, None, craft)
-        self.aircrafts.append(craft)
+        self.aircrafts.append(self.craft)
+    
+    def fill_aircraft(self, base_ammo=None):
+        Carrier.base_ammo = self.base_ammo
+        ammo_need = 0
+        for x in range(len(self.aircrafts)):
+            need = self.aircrafts[x].max_ammo
+            ammo_need += need 
+        if ammo_need < self.base_ammo:
+            for i in range(len(self.aircrafts)):
+                while self.aircrafts[i].ammo < self.aircrafts[i].max_ammo and self.base_ammo != 0:
+                        self.aircrafts[i].ammo += 1
+                        self.base_ammo -= 1
+        elif self.base_ammo <= 0:
+            print('No ammo left')
+        else:
+            order = self.aircrafts
+            while self.base_ammo != 0:
+                for i in range(len(order)):
+                    if order[i].typo == 'F35':
+                        while order[i].ammo < order[i].max_ammo and self.base_ammo != 0:
+                                order[i].ammo += 1
+                                self.base_ammo -= 1
+                for i in range(len(self.aircrafts)):
+                    while self.aircrafts[i].ammo < self.aircrafts[i].max_ammo and self.base_ammo != 0:
+                        self.aircrafts[i].ammo += 1
+                        self.base_ammo -= 1
+
+    def fight(self, carrier):
+        damage = 0
+        for i in range(len(self.aircrafts)):
+           fire = self.aircrafts[i].ammo * self.aircrafts[i].base_damage
+           damage += fire
+           self.aircrafts[i].ammo = 0
+           carrier.health -= fire
 
     def getStatus(self):
-        #return 'HP: ' + str(self.health) + ' Aircraft count: ' + str(len(self.aircrafts)) + ' Ammo Storage: ' + str(self.base_ammo) + ' Total damage: '
+        total_damage = 0
+        for i in range(len(self.aircrafts)):
+            damages = self.aircrafts[i].ammo * self.aircrafts[i].base_damage
+            total_damage += damages
+        print('HP: ' + str(self.health) + ' Aircraft count: ' + str(len(self.aircrafts)) + ' Ammo Storage: ' + str(self.base_ammo) + ' Total damage: ' + str(total_damage))
         counter = 0
         while counter < len(self.aircrafts):
             for stored in self.aircrafts:
-                stored = self.craft
                 print(Aircraft.getStatus(stored))
                 counter += 1
 
 carrier = Carrier(None, None, None)
+
 carrier.addAircraft('F16')
 carrier.addAircraft('F16')
 carrier.addAircraft('F35')
+carrier.addAircraft('F16')
+carrier.addAircraft('F35')
 
-print(carrier.aircrafts)
-print(carrier.getStatus())
+#print(carrier.aircrafts)
+carrier.fill_aircraft()
+carrier.getStatus()
+class Carrier2():
+    def __init__(self, aircrafts, base_ammo, health):
+        self.base_ammo = base_ammo
+        self.health = health
+        self.base_ammo = 4000
+        self.health = 10000
+
+carrier2 = Carrier2(None, None, None)
+carrier.fight(carrier2)
+print(carrier2.health)
+carrier.getStatus()
+
 
 
 
