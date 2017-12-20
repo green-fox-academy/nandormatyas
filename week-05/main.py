@@ -5,12 +5,34 @@ from PIL import ImageTk, Image
 
 draw_map()
 hero = Hero()
-
 hero.image = ImageTk.PhotoImage(Image.open("hero-down.png"))
 draw_hero(0,0, hero.image)
 
 map_source = open("map.txt")
 map_tiles = map_source.readlines()
+
+monster_on_map = 0
+monsters_ready = []
+while monster_on_map < 5:
+    monster = Monster()
+    if map_tiles[monster.y//72][monster.x//72] != '0' or monster in monsters_ready:
+        continue
+    else:
+        monster.image = ImageTk.PhotoImage(Image.open("skeleton.png"))
+        draw_monster(monster.x, monster.y, monster.image)
+        monsters_ready.append(monster)
+        monster_on_map += 1
+boss = Boss()
+boss_on_map = 0
+while boss_on_map < 1:
+    if map_tiles[boss.y//72][boss.x//72] != '0' or boss in monsters_ready:
+        boss = Boss()
+    else:
+        boss.image = ImageTk.PhotoImage(Image.open("boss.png"))
+        draw_boss(boss.x, boss.y, boss.image)
+        boss_on_map = 1
+#if map_tiles[monster.y//72][monster.x//72] != '1':
+
 
 class Controller():
     def on_key_press(self, e):

@@ -1,6 +1,7 @@
 from tkinter import *
 from PIL import ImageTk, Image
 import numpy as np
+import random
 
 root = Tk()
 canvas = Canvas(root, width='720', height='792')
@@ -9,13 +10,6 @@ floor = ImageTk.PhotoImage(Image.open("floor.png"))
 wall = ImageTk.PhotoImage(Image.open("wall.png")) 
 hero = ImageTk.PhotoImage(Image.open("hero-down.png"))
 
-
-'''     for i in range(len(map_read)):
-        for j in range(len(map_read[i])):
-            if map_read[i][j] == '0':
-                canvas.create_image(j*72, i*72, anchor=NW, image=floor)
-            else:
-                canvas.create_image(j*72, i*72, anchor=NW, image=wall)'''
 def draw_map():
     map_source = open("map.txt")
     map_read = map_source.read()
@@ -34,12 +28,29 @@ def draw_map():
             if x == 720:
                 y += 72
                 x = 0
+
 def draw_hero(x, y, image):
     canvas.create_image(x, y, anchor=NW, image=image)
+
+def draw_monster(x, y, image):
+    canvas.create_image(x, y, anchor=NW, image=image)
+
+def draw_boss(x, y, image):
+    canvas.create_image(x, y, anchor=NW, image=image)
+    
 
 draw_map()
 
 
+''' def draw_map():
+    map_source = open("map.txt")
+    map_read = map_source.read()
+    for i in range(len(map_read)):
+        for j in range(len(map_read[i])):
+            if map_read[i][j] == '0':
+                canvas.create_image(j*72, i*72, anchor=NW, image=floor)
+            else:
+                canvas.create_image(j*72, i*72, anchor=NW, image=wall)'''
 #view = Map()
 #view.draw_map()
 #view.draw_hero()
