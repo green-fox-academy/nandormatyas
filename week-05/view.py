@@ -1,7 +1,7 @@
 from tkinter import *
 from PIL import ImageTk, Image
-import numpy as np
 import random
+import time
 
 root = Tk()
 canvas = Canvas(root, width='720', height='792')
@@ -38,8 +38,18 @@ def draw_monster(x, y, image):
 def draw_boss(x, y, image):
     canvas.create_image(x, y, anchor=NW, image=image)
     
-
-draw_map()
+monsters_ready = []
+def place_monsters(monster_class, map_place):
+    monster_on_map = 0
+    while monster_on_map < 5:
+        monster = monster_class
+        if map_place[monster.y//72][monster.x//72] != '0' or monster in monsters_ready:
+            continue
+        else:
+            monster.image = ImageTk.PhotoImage(Image.open("skeleton.png"))
+            draw_monster(monster.x, monster.y, monster.image)
+            monsters_ready.append(monster)
+            monster_on_map += 1
 
 
 ''' def draw_map():
