@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+.container{
+    width: 100%;
+    height: 500px;
+    background: yellow;
+
+}
+.header{
+    display:flex;
+    width: 100%;
+    height: 50px;
+    background: purple;
+    z-index: 1;
+    
+}
+nav a{
+    align-self: flex-start;
+    color: aqua;
+    
+}
+.main{
+    display:flex;
+    //align-items: flex-end;
+}
+.sidebar{
+    background: green;
+    height: 100%;
+    width: 20%;
+    align-self: flex-end;
+}

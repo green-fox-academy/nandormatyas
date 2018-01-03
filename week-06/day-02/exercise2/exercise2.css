@@ -4,12 +4,17 @@
     
     
 }
-
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .yellow{
     width: 200px;
     height:100px;
     background: yellow;
+    position: relative;
 
 }
 
