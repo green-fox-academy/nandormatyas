@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+    
+}
+
+
+.yellow{
+    width: 200px;
+    height:100px;
+    background: yellow;
+
+}
+
+.purple{
+    background: purple;
+    width:30px;
+    height: 30px;
+    position: absolute;
+    top: 35px;
+    left: 85px;
+  
+    
+    
+
+    
+}

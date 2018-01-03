@@ -1,0 +1,16 @@
+.container{
+}
+.item{
+    width: 200px;
+    height: 200px;
+    float: left;
+}
+.green{
+    background: green;
+}
+.yellow{
+    background: yellow;
+}
+.purple{
+    background: purple;
+}
