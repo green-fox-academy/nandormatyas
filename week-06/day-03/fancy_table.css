@@ -5,22 +5,19 @@
 
 body{
   background: lightblue;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
-tbody{
-  width: 100%;
-}
 table{
-
-  display: table;
+  border: 1px solid;
 }
-tr{
-  width: 70%;
+table, th, td{
+  margin:0;
+  width: 400px;
   height: 75px;
   background: lightgrey;
-  border: 2px;
-  border-color: black;
-
+  padding: 10px;
 }
 tr:nth-child(2n) {
   background: grey;
@@ -28,6 +25,9 @@ tr:nth-child(2n) {
 th{
   color: white;
   background: darkslategrey;
-  border:1px;
+  border:1px solid;
+}
+td {
+  border: 1px solid;
 }
 
