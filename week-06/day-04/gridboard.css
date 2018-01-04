@@ -1,0 +1,35 @@
+body{
+  font-family: 'arial';
+  text-align: center;
+  margin: 0;
+}
+
+.content{
+  display:grid;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 120px);
+  border: 1px solid black;
+}
+.field{
+  grid-area: 1/1/7/8;
+  background: yellow;
+}
+
+.middle{
+  grid-area: 2/2/6/span 5;
+  background: lightgreen;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  color: white;
+}
+.middle .cards{
+  grid-area: 6/10/10/19;
+  background: purple;
+  color: white;
+
+}
