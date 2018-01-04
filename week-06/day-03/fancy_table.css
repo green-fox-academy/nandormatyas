@@ -1,0 +1,33 @@
+*{
+  margin: 0;
+  padding:0;
+}
+
+body{
+  background: lightblue;
+  align-items: center;
+}
+tbody{
+  width: 100%;
+}
+table{
+
+  display: table;
+}
+tr{
+  width: 70%;
+  height: 75px;
+  background: lightgrey;
+  border: 2px;
+  border-color: black;
+
+}
+tr:nth-child(2n) {
+  background: grey;
+}
+th{
+  color: white;
+  background: darkslategrey;
+  border:1px;
+}
+
