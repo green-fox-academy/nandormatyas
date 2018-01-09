@@ -6,10 +6,10 @@
 //		- do it with creating a new temp array and a loop
 // - Print the elements of the reversed `aj`
 var aj = [3, 4, 5, 6, 7];
-console.log(aj.reverse())
+console.log(aj.reverse());
 
 var newaj = [];
 for(var i = 0; i < aj.length; i++){
   newaj.push(aj[i]);
 }
-console.log(newaj)
+console.log(newaj);
