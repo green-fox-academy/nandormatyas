@@ -3,6 +3,7 @@
     3. Alert the content of the second paragraph.
     4. Replace the heading's content with 'New content'.
     5. Replace the last paragraph's content with the first paragraph's content.*/
+'use strict';
 var heading = document.querySelector('h1');
 //alert(heading.innerHTML)
 var theParagraph = document.querySelectorAll('p');
