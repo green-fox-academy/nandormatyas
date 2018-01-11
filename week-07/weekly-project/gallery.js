@@ -42,3 +42,33 @@ for(var i = 0; i < pictures.length; i++){
   image.setAttribute('src', pictures[i].path);
   addSmallImages.appendChild(image);
 }
+
+var pathList = [];
+for(var i = 0; i < pictures.length; i++){
+  pathList.push(pictures[i].path);
+}
+
+document.querySelector('#main').setAttribute('src', pathList[0]);
+
+var n = 0;
+var buttonLeft = document.querySelector('.left');
+buttonLeft.onclick = function () {
+  if(n < 0 ){
+    n = pathList.length - 1;
+  }else if(n > pathList.length - 1){
+    n = 0;
+  }
+  document.querySelector('#main').setAttribute('src', pathList[n--]);
+}
+var buttonRight = document.querySelector('.right');
+buttonRight.onclick = function () {
+  if(n < 0 ){
+    n = pathList.length - 1;
+  }else if(n > pathList.length - 1){
+    n = 0;
+  }
+  document.querySelector('#main').setAttribute('src', pathList[n++]);
+}
+
+
+
