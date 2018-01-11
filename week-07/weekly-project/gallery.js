@@ -21,24 +21,24 @@ var pictures = [
   },
   {
     path: 'assets/plane.jpg',
-    title: 'Sheep',
+    title: 'Plane',
     description: 'blablablablabla'
   },
   {
     path: 'assets/wfall.jpg',
-    title: 'Sheep',
+    title: 'Waterfall',
     description: 'blablablablabla'
   },
   {
     path: 'assets/moon.jpg',
-    title: 'Sheep',
+    title: 'Moon',
     description: 'blablablablabla'
   },
 ]
-var theSmallImages = document.querySelector('.small-images');
+var addSmallImages = document.querySelector('.small-images');
 
 for(var i = 0; i < pictures.length; i++){
   var image = document.createElement('img');
   image.setAttribute('src', pictures[i].path);
-  theSmallImages.appendChild(image);
+  addSmallImages.appendChild(image);
 }
