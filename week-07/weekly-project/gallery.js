@@ -87,6 +87,13 @@ buttonRight.onclick = function () {
   }
   document.querySelector('#main').setAttribute('src', pathList[n]);
 }
-
-
-
+document.querySelector('.small-images').addEventListener('click', changeImage);
+function changeImage(e){
+  console.log(n);
+  document.querySelector('#main').setAttribute('src',e.target.src);
+  for(var i = 0; i < pathList.length; i++){
+    if(pathList[i] === e.target.getAttribute('src')){
+      n = i;
+    }
+  }
+}
