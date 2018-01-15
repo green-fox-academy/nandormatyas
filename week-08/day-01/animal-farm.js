@@ -10,22 +10,26 @@ const button = document.querySelector('button');
 // The progress function should log the following to the console:
 //  - The farm has 20 living animals, we are full
 'use strict';
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
 function Animal(){
   this.hunger = 5;
   this.thirst = 5;
   this.eat = function(){
-    this.hunger -= 1;
+    this.hunger -= getRandomInt(4);
   }
   this.drink = function(){
-    this.thirst -= 1;
+    this.thirst -= getRandomInt(4);
   }
   this.play = function(){
-    this.hunger += 1;
-    this.thirst += 1;
+    this.hunger += getRandomInt(4);
+    this.thirst += getRandomInt(4);
   }
 }
-var pig = new Animal();
-var pig1 = new Animal();
+
 function Farm(totalSlot){
   this.totalSlot = totalSlot;
   this.liveStock = [];
@@ -52,20 +56,37 @@ function Farm(totalSlot){
   this.stats = function(){
     console.log('The farm has ' + this.liveStock.length + ' living animals');
   }
-    
+  //RANDOM EVENT HAPPENS TO EACH ANIMAL
+  this.progress = function(){
+    var happenings = ['eat', 'drink', 'play'];
+    for(var i = 0;i< this.liveStock.length;i++){
+      var event = this.liveStock[i]
+      var thing = happenings[getRandomInt(3)];
+      event[thing]();
+    }
+    this.stats()
+    this.slaughter();
+    this.stats()
+    this.breed(new Animal());
+    this.stats()
+  }
+  
 }
+//FILL UP FARM WITH ANIMALS
 function animalAdder(numberOfAnimals, toFarm){
   for(var i = 0; i < numberOfAnimals; i++){
     var animal = new Animal();
     toFarm.liveStock.push(animal)
   }
 }
+
 var farm1 = new Farm(20);
 animalAdder(20, farm1);
-farm1.stats();
 
-farm1.liveStock[18].eat();
-//console.log(farm1.liveStock)
-farm1.slaughter();
-//console.log(farm1.liveStock)
-farm1.stats();
+//farm1.stats();
+farm1.progress();
+//console.log(farm1.liveStock);
+//farm1.stats();
+//farm1.slaughter();
+
+//farm1.stats();
