@@ -35,12 +35,21 @@ function seperate(line){
 function objectCreate(raw){
   raw = {'name': raw[0],
          'id': raw[1],
-          'color_code ' : raw[2]};
+         'color_code': raw[2]};
   return raw;
 }
 var pieces = lines.map(seperate);
 var obj = pieces.map(objectCreate);
-console.log(obj);
+console.log(obj.length);
+var resArr = [];
+obj.filter(function(item){
+  var i = resArr.findIndex(x => x.name == item.name);
+  if(i === -1){
+        resArr.push({name: item.name, id: item.id, color_code: item.color_code});
+  }
+  return null;
+});
+console.log(resArr.length);
 
 
 // Remove all duplicates based on their name, always keep the first one
