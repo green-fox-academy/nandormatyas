@@ -11,6 +11,25 @@
     <script>    
         // The users variables comes from the file included above
         console.log(users.length)
+        var validUsers = [];
+        users.filter(function(item){
+          if(item.bitcoin_address != null && item.email != null){
+            validUsers.push(item);
+          }
+        })
+        var newvalid = [];
+        function format(person){
+          p = {
+            'full_name': person.first_name + person.last_name,
+            'addresses':{
+              'bitcoin': person.bitcoin_address,
+              'email': person.email
+            }
+          }
+          newvalid.push(p)
+        }
+        validUsers.map(format);
+        console.log(newvalid);
         // First select from the list the users whose bitcoin address AND email address is provided
         // Then return a list of users. Each user should be in the following format:
         singleUser = {
