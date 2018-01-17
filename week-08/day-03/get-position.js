@@ -1,5 +1,10 @@
 'use strict'
+
 var link = 'https://devru-latitude-longitude-find-v1.p.mashape.com/latlon.php?location=New+York';
+
+var button = document.querySelector('button');
+button.addEventListener("click", linkBuilder);
+
 function connectAndGetDataBack(){
   var http = new XMLHttpRequest();
   http.open('GET', link, true);
@@ -14,6 +19,9 @@ function connectAndGetDataBack(){
         var data = http.responseText;
         data = parser(data);
         console.log(data);
+        data = longitudeLatitude(data);
+        console.log(data)
+        coordinatesToGmaps(data)
       } else {
         console.log('There was a problem with the request.');
       }
@@ -21,8 +29,16 @@ function connectAndGetDataBack(){
   }
 }
 
-var button = document.querySelector('button');
-button.addEventListener("click", linkBuilder);
+function coordinatesToGmaps(data){
+  var iframe = document.querySelector('iframe');
+  return iframe.setAttribute('src', 'https://www.google.com/maps/embed/v1/view?key=AIzaSyDUkHnoCVVbEc60sTRY9jIR0mFH67kfUho&center=' + data + '&zoom=10" allowfullscreen')
+}
+
+function longitudeLatitude(data){
+  var lonLat = data.Results[0].lat + ',' + data.Results[0].lon;
+  var label = document.querySelector('label');
+  return label.innerHTML = lonLat;
+}
 
 function getText(){
   var city = document.querySelector('input');
@@ -37,11 +53,11 @@ function linkBuilder(){
   connectAndGetDataBack();
 }
 
-
 function parser(freshData){
   freshData = JSON.parse(freshData)
   return freshData;
 }
+
 
 
 
