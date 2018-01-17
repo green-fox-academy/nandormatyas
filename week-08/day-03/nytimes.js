@@ -32,7 +32,7 @@ function arrangeData(documentObject){
       containArticles.appendChild(article);
       containArticles.appendChild(link);
       article.innerHTML = 'HEADLINE: ' + objectArray[i].headline + '<br>' + 'SNIPPET: ' +  objectArray[i].snippet + '<br>' + 'PUBLICATION DATE: ' +  objectArray[i].publication_date;
-      link.innerHTML = 'Click here for the article' + '<br>';
+      link.innerHTML = 'Click here to the article' + '<br>';
       link.setAttribute('href', objectArray[i].url);
 
     }
