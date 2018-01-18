@@ -1,28 +1,30 @@
 'use strict'
 
-var link = 'https://time-radish.glitch.me/posts';
+var link = 'http://secure-reddit.herokuapp.com/simple/posts';
 
 //var button = document.querySelector('button');
 //button.addEventListener("click", linkBuilder);
 function connectAndGetDataBackParsed(){
   var http = new XMLHttpRequest();
   http.open('GET', link, true);
-  http.send();
   http.onreadystatechange = function(){
     if (http.readyState === XMLHttpRequest.DONE) {
       console.log('ready state: done');
       if (http.status === 200) {
         console.log('http status: ok');
         var data = http.responseText;
-        data = JSON.parse(data);
-        console.log(data)
+        data = JSON.parse(data).posts;
+        console.log(data);
+        threadCreator(data);
       } else {
         console.log('There was a problem with the request.');
       }
     }
   }
+  http.send();
 }
-//connectAndGetDataBackParsed();
+connectAndGetDataBackParsed()
+
 function threadSetUp(){
   var forum = document.querySelector('.forum')
   var thread = document.createElement('div');
@@ -31,7 +33,6 @@ function threadSetUp(){
 }
 
 function counterAndContentSetUp (index){
-  //var index = 1;
 
   var newThread = document.querySelectorAll('.thread');
 
@@ -44,49 +45,66 @@ function counterAndContentSetUp (index){
   content.setAttribute('class', 'content');
 }
 
-function counterSetUp (index){
-  //var index = 1;
+function counterSetUp (index, data){
   
   var counter = document.querySelectorAll('.counter');
 
   var buttonUp = document.createElement('div');
-  counter[index].appendChild(buttonUp)
-  buttonUp.setAttribute('class', 'button_up');
-
+  counter[index].appendChild(buttonUp);
+  buttonUp.classList.add('button_up', 'index' + index);
+  buttonUp.onclick = function () {
+    let allScore = document.querySelectorAll('.score');
+    let allButtonUp = document.querySelectorAll('.button_up');
+      if(buttonUp.classList.item(1) === score.classList.item(1)){
+        score.innerHTML++;
+  
+    }
+}
   var score = document.createElement('div');
-  counter[index].appendChild(score)
-  score.setAttribute('class', 'score');
+  counter[index].appendChild(score);
+  score.classList.add('score', 'index' + index);
+  score.innerHTML = data[index].score;
 
   var buttonDown = document.createElement('div');
-  counter[index].appendChild(buttonDown)
-  buttonDown.setAttribute('class', 'button_down');
+  counter[index].appendChild(buttonDown);
+  buttonDown.classList.add('button_down', 'index' + index);
 }
 
-function contentSetUp (index){
-  //var index = 1;
+function contentSetUp (index, data){
   
   var content = document.querySelectorAll('.content');
 
   var title = document.createElement('div');
-  content[index].appendChild(title)
+  content[index].appendChild(title);
   title.setAttribute('class', 'title');
+  title.innerHTML = data[index].title;
 
   var poster = document.createElement('div');
-  content[index].appendChild(poster)
+  content[index].appendChild(poster);
   poster.setAttribute('class', 'poster');
-
+  if(data[index].user === null){
+    poster.innerHTML = 'anonymous'
+  }else{
+    poster.innerHTML = data[index].user;
+  }
   var timestamp = document.createElement('div');
-  content[index].appendChild(timestamp)
+  content[index].appendChild(timestamp);
   timestamp.setAttribute('class', 'timestamp');
+  var inHours = data[index].timestamp;
+  timestamp.innerHTML = inHours / 3600000;
 }
 
 function threadCreator (data){
-  for(var i = 1; i < data;i++){
+  for(var i = 0; i < data.length;i++){
     threadSetUp(i);
     counterAndContentSetUp(i);
-    counterSetUp(i);
-    contentSetUp(i);
+    counterSetUp(i, data);
+    contentSetUp(i, data);
   }
 }
-threadCreator(3)
-
+//threadCreator(3)
+function voter() {
+  let allButtonDown = document.querySelectorAll('.button_down');
+  let allScore = document.querySelectorAll('.score');
+  let allButtonUp = document.querySelectorAll('.button_up');
+}
