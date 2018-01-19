@@ -59,6 +59,8 @@ body {
   font-family: Lato;
   box-shadow: 1px 1px 1px 0px black;
   cursor: pointer;
+  text-decoration: none;
+
 }
 .submit:active {
   box-shadow: inset 1px 1px 1px 0px black;
@@ -111,6 +113,21 @@ body {
   justify-content: space-around;
   align-items: center;
 }
+.delete_button {
+  grid-column: 3 / 3;
+  grid-row: 1 / 1;
+  width: 30px;
+  height:30px;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px 0px black;
+  cursor: pointer;
+  background: rgb(32, 19, 223);
+  color: red;
+}
+.delete_button:active {
+  box-shadow: inset 1px 1px 1px 0px black;
+
+}
 .score {
   font-family: Lato;
   font-weight: 900;
@@ -157,7 +174,11 @@ body {
 .title{
   grid-column: 1 / 4;
   grid-row: 1 / 1;
+  max-height: 57px;
   background: yellow;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
 }
 .poster {
   grid-column: 1 / 3;

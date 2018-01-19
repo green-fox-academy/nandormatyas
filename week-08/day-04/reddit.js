@@ -68,6 +68,14 @@ function counterSetUp (index, data){
   var buttonDown = document.createElement('div');
   counter[index].appendChild(buttonDown);
   buttonDown.classList.add('button_down', 'index' + index);
+  buttonDown.onclick = function () {
+    let allScore = document.querySelectorAll('.score');
+    let allButtonDown = document.querySelectorAll('.button_down');
+      if(buttonDown.classList.item(1) === score.classList.item(1)){
+        score.innerHTML--;
+  
+    }
+
 }
 
 function contentSetUp (index, data){

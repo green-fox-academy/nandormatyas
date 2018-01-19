@@ -4,20 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href = "reddit.css" rel = "stylesheet">
-  <title>Reddit</title>
+  <link href="reddit_post.css" rel="stylesheet">
+  <title>Post</title>
 </head>
 <body>
-  <div class = "container">
+  <div class="container">
     <div class = "head">
-      <a href = "#">SPACE</a>
+        <a href = "reddit.html">SPACE</a>
     </div>
+    <div class = "post_form">
+      <label for="to_post">Write your post here: </label>
+      <input type="text" id="to_post">
+      <label for="url_name">URL: </label>
+      <input type="text" id="url_name">
+      <label for="user">User: </label>
+      <input type="text" id="user"> 
 
-    <div class = "forum">
-      
+      <div class ="submit_button">SUBMIT</div>
     </div>
-
-    <div class = "submit">SUBMIT A NEW POST</div>
+  
     <div class = "topics">
       <div class = "about">
         <span>ABOUT</span>
@@ -34,10 +39,9 @@
         </ul>
       </div>
     </div>
-
-
+  
 
   </div>
-  <script src = "reddit.js"></script>
+  <script src="reddit_post.js"></script>
 </body>
 </html>
