@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var link = 'https://time-radish.glitch.me/posts';
 
@@ -45,7 +45,7 @@ function spammer(howMany) {
     setInterval(postData(data), 1000);
   }
 }
-//spammer(50)
+//spammer(2)
 
 function submit() {
   postData(finalizeData());

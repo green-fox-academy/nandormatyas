@@ -50,8 +50,19 @@ function counterAndContentSetUp (index, data){
   deleteButton.innerHTML = 'DEL';
   deleteButton.onclick = function() {
     var currentId = deleteButton.classList.item(1);
+    var forum = document.querySelector('.forum');
+    var thread = document.querySelectorAll('.thread');
+    thread.forEach(function(e) {
+      if(e.classList.item(1) === currentId){
+        var toRemove = forum.querySelector('.' + CSS.escape(e.classList.item(1)));
+        console.log(toRemove);
+        forum.removeChild(toRemove);
+        deleteData(currentId)
+      }
+
+    })
+  
     console.log(currentId);
-    deleteData(currentId)
   }
 }
 

@@ -9,7 +9,7 @@
 body {
   width: 100%;
   height: 100vh;
-  background: grey;
+  background: rgb(156, 156, 156);
 }
 
 .container {
@@ -70,7 +70,7 @@ body {
   grid-column: 3 / 3;
   grid-row: 4 / 6;
   border: 1px solid darkgrey;
-  background: lightcyan;
+  background: lightgrey;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 50px 1fr;
@@ -120,8 +120,9 @@ body {
   border: 1px solid black;
   box-shadow: 1px 1px 1px 0px black;
   cursor: pointer;
-  background: rgb(104, 99, 99);
+  background: rgb(151, 101, 101);
   border-radius: 5px;
+  color:rgb(172, 166, 161);
 }
 .delete_button:active {
   box-shadow: inset 1px 1px 1px 0px black;
@@ -176,7 +177,7 @@ body {
   max-height: 57px;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow: auto;
 }
 .poster {
   grid-column: 1 / 3;
