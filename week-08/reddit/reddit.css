@@ -94,9 +94,9 @@ body {
 }
 .thread{
   display: grid;
+  background: lightgray;
   grid-template-columns: 125px 1fr;
   grid-template-rows: 1fr;
-  border: 1px solid green;
   min-height: 80px;
   margin: 6px;
   padding: 3px;
@@ -106,7 +106,6 @@ body {
 
 .counter{
   grid-column: 1 / 2;
-  border: 1px solid red;
   height: 80%;
   display: flex;
   flex-direction: column;
@@ -121,8 +120,8 @@ body {
   border: 1px solid black;
   box-shadow: 1px 1px 1px 0px black;
   cursor: pointer;
-  background: rgb(32, 19, 223);
-  color: red;
+  background: rgb(104, 99, 99);
+  border-radius: 5px;
 }
 .delete_button:active {
   box-shadow: inset 1px 1px 1px 0px black;
@@ -175,7 +174,6 @@ body {
   grid-column: 1 / 4;
   grid-row: 1 / 1;
   max-height: 57px;
-  background: yellow;
   display: flex;
   flex-direction: column;
   overflow: scroll;
@@ -183,12 +181,13 @@ body {
 .poster {
   grid-column: 1 / 3;
   grid-row: 2 / 2;
-  background: green;
+  border: rgb(82, 74, 74);
+
 }
 .timestamp {
   grid-column: 3 / 4;
   grid-row: 2 / 2;
-  background: purple;
+  border: rgb(82, 74, 74);
 }
 
 

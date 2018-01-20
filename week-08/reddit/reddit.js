@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var link = 'https://time-radish.glitch.me/posts';
 
@@ -48,7 +48,12 @@ function counterAndContentSetUp (index, data){
   newThread[index].appendChild(deleteButton);
   deleteButton.classList.add('delete_button', data[index].id);
   deleteButton.innerHTML = 'DEL';
+  deleteButton.onclick = function() {
+    var currentId = deleteButton.classList.item(1);
+    console.log(currentId);
+    deleteData(currentId)
   }
+}
 
 function counterSetUp (index, data){
   
@@ -57,10 +62,8 @@ function counterSetUp (index, data){
   var buttonUp = document.createElement('div');
   counter[index].appendChild(buttonUp);
   buttonUp.classList.add('button_up', 'index' + index, data[index].id);
+
   buttonUp.onclick = function() {
-    let allScore = document.querySelectorAll('.score');
-    let allButtonUp = document.querySelectorAll('.button_up');
-    if(buttonUp.classList.item(1) === score.classList.item(1)){
       score.innerHTML++;
       var postScore = {
         'score': score.innerHTML,
@@ -68,7 +71,7 @@ function counterSetUp (index, data){
       var currentId = score.classList.item(2);
       postData(postScore, currentId, 'upvote');
   }
-}
+
 
   var score = document.createElement('div');
   counter[index].appendChild(score);
@@ -78,10 +81,8 @@ function counterSetUp (index, data){
   var buttonDown = document.createElement('div');
   counter[index].appendChild(buttonDown);
   buttonDown.classList.add('button_down', 'index' + index, data[index].id);
+
   buttonDown.onclick = function () {
-    let allScore = document.querySelectorAll('.score');
-    let allButtonDown = document.querySelectorAll('.button_down');
-      if(buttonDown.classList.item(1) === score.classList.item(1)){
         score.innerHTML--;
         var postScore = {
           'score': score.innerHTML,
@@ -90,7 +91,7 @@ function counterSetUp (index, data){
         postData(postScore, currentId, 'downvote');
     }
   }
-}
+
 
 
 function contentSetUp (index, data){
@@ -115,6 +116,7 @@ function contentSetUp (index, data){
   }else{
     poster.innerHTML = data[index].owner;
   }
+
   var timestamp = document.createElement('div');
   content[index].appendChild(timestamp);
   timestamp.setAttribute('class', 'timestamp');
@@ -130,6 +132,7 @@ function threadCreator (data){
     contentSetUp(i, data);
   }
 }
+
 function postData(data, id, vote){
   var http = new XMLHttpRequest();
   http.open('PUT','https://time-radish.glitch.me/posts/' + id + '/' + vote , true);
@@ -147,15 +150,6 @@ function postData(data, id, vote){
   data = JSON.stringify(data);
   http.send(data);
 }
-function selectToDelete() {
-    var allDeleteButtons = document.querySelectorAll('.delete_button');
-    allDeleteButtons.onclick = function(e) {
-      var clickedId = e.target;
-      console.log(clickedId);
-    }
-  }
-selectToDelete();
-
 
 function deleteData(id) {
   var link = 'https://time-radish.glitch.me/posts/' + id;

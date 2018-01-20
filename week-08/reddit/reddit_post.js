@@ -11,7 +11,7 @@ function postData(data){
   http.open('POST', link, true);
   http.setRequestHeader('Accept', 'application/json');
   http.setRequestHeader('Content-Type', 'application/json');
-  http.setRequestHeader('Username', 'Rocky Balboa');
+  http.setRequestHeader('Username', 'nemaBob');
   http.onreadystatechange = function(){
     if (http.readyState === XMLHttpRequest.DONE) {
       console.log('ready state: done');
@@ -45,7 +45,7 @@ function spammer(howMany) {
     setInterval(postData(data), 1000);
   }
 }
-//spammer(2)
+//spammer(50)
 
 function submit() {
   postData(finalizeData());
