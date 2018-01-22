@@ -48,6 +48,7 @@ function counterAndContentSetUp (index, data){
   newThread[index].appendChild(deleteButton);
   deleteButton.classList.add('delete_button', data[index].id);
   deleteButton.innerHTML = 'DEL';
+  
   deleteButton.onclick = function() {
     var currentId = deleteButton.classList.item(1);
     var forum = document.querySelector('.forum');
@@ -55,15 +56,11 @@ function counterAndContentSetUp (index, data){
     thread.forEach(function(e) {
       if(e.classList.item(1) === currentId){
         var toRemove = forum.querySelector('.' + CSS.escape(e.classList.item(1)));
-        console.log(toRemove);
         forum.removeChild(toRemove);
         deleteData(currentId)
       }
-
-    })
-  
-    console.log(currentId);
-  }
+    }
+  )}
 }
 
 function counterSetUp (index, data){
@@ -170,7 +167,6 @@ function deleteData(id) {
   http.onreadystatechange = function () {
     if (http.readyState === XMLHttpRequest.DONE && http.status == "200") {
       console.log('Delete done');
-      var data = http.responseText;
     } else {
       console.log('Error');
     }

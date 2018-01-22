@@ -45,7 +45,7 @@ function spammer(howMany) {
     setInterval(postData(data), 1000);
   }
 }
-//spammer(2)
+//spammer(12)
 
 function submit() {
   postData(finalizeData());
