@@ -1,7 +1,7 @@
 'use strict';
 
 const sumUp = {
-  sumArray(array){
+  sumArray(array) {
     let all = 0;
     array.forEach(function(element) {
       if (typeof(element) === 'number') {
