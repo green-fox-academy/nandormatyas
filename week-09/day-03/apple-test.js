@@ -4,8 +4,8 @@ const test = require('tape');
 const apple = require('./apples.js');
 
 test('return string: apple', function (t) {
-  let actual = apple.getApple();
-  let expected = 'apple';
+  const actual = apple.getApple();
+  const expected = 'apple';
 
   t.equal(actual, expected);
   t.end();
