@@ -47,7 +47,7 @@ app.post('/posts', function (req, res) {
       return;
     }
     console.log('saved')
-    res.send('Saved');
+    res.send();
   });
 });
 
@@ -58,20 +58,32 @@ app.delete('/posts/:id', function (req, res) {
       res.status(500).send('Database error');
       return;
     }
-    console.log('Deleted')
-    res.send('Deleted');
+    console.log('deleted')
+    res.send();
   });
 });
 
 app.put('/posts/:id/upvote', function (req, res) {
   conn.query('UPDATE threads SET score = ? WHERE id = ?', [req.body.score, req.body.id], (err, result) => {
-    console.log('changed');
+    if(err) {
+      console.log(err.toString());
+      res.status(500).send('Database error');
+      return;
+    }
+    console.log('upvoted')
+    res.send();
   });  
 });
 
 app.put('/posts/:id/downvote', function (req, res) {
   conn.query('UPDATE threads SET score = ? WHERE id = ?', [req.body.score, req.body.id], (err, result) => {
-    console.log('changed');
+    if(err) {
+      console.log(err.toString());
+      res.status(500).send('Database error');
+      return;
+    }
+    console.log('downvoted')
+    res.send();
   });
 });
 app.listen(3000, function (){
