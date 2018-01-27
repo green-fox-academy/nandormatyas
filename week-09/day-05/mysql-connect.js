@@ -4,7 +4,7 @@ var conn = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '12345',
-  database: 'bookstore',
+  database: 'posts',
 
 });
 
@@ -16,7 +16,7 @@ conn.connect(function(err){
   console.log("Connection established");
 });
 
-conn.query('select * from author', function(err, result) {
+conn.query('select * from title', function(err, result) {
   console.log(result);
 });
 

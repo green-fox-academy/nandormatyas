@@ -27,9 +27,10 @@ let posts = [
   "score": 567,
   "owner": "kristof4",
   "vote": -1
-}]
+}];
 
 app.get('/posts', function (req, res) {
+
   res.json({
     "posts": posts,
   });
