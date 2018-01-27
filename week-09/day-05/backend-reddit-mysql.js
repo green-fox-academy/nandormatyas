@@ -24,7 +24,6 @@ function connectionDataSetup() {
   return conn
 };
 function connectToMySQL () {
-  let conn = connectionDataSetup();
   conn.connect((err) => {
     if(err){
       console.log("Error connecting to Database");
@@ -32,7 +31,6 @@ function connectToMySQL () {
     }
     console.log("Connection established");
   });
-  return conn
 };
 function endConnection () {
   conn.end(function () {
