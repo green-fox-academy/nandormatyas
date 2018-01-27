@@ -38,7 +38,42 @@ app.get('/posts', function(req, res) {
   });
 });
 
+app.post('/posts', function (req, res) {
+  req.body.timestamp = Date.now() / 3600000;
+  conn.query('INSERT INTO threads SET ?', req.body, (err, result) => {
+    if(err) {
+      console.log(err.toString());
+      res.status(500).send('Database error');
+      return;
+    }
+    console.log('saved')
+    res.send('Saved');
+  });
+});
 
+app.delete('/posts/:id', function (req, res) {
+  conn.query('DELETE FROM threads WHERE id = ?', [req.params.id], (err, result) => {
+    if(err) {
+      console.log(err.toString());
+      res.status(500).send('Database error');
+      return;
+    }
+    console.log('Deleted')
+    res.send('Deleted');
+  });
+});
+
+app.put('/posts/:id/upvote', function (req, res) {
+  conn.query('UPDATE threads SET score = ? WHERE id = ?', [req.body.score, req.body.id], (err, result) => {
+    console.log('changed');
+  });  
+});
+
+app.put('/posts/:id/downvote', function (req, res) {
+  conn.query('UPDATE threads SET score = ? WHERE id = ?', [req.body.score, req.body.id], (err, result) => {
+    console.log('changed');
+  });
+});
 app.listen(3000, function (){
   console.log('app is running');
 });
@@ -47,19 +82,3 @@ app.listen(3000, function (){
   console.log('SQL Connection ended')
 });
  */
-
-/* conn.query('INSERT INTO threads (title) VALUES (\'Kisherceg\'), (\'Robinson crusoe\')', (err, result) => {
-  getTableElements();
-  console.log(result);
-});
- */
-/* conn.query('UPDATE threads SET score = 2 WHERE title = \'Kisherceg\' AND thread_id = 18;', (err, result) => {
-  console.log('changed');
-});
- */
-
-/* conn.query('DELETE FROM threads WHERE title = \'Kisherceg\' AND thread_id > 10', (err, result) => {
-  console.log(result);
-});
- */
-
