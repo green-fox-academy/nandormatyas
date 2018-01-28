@@ -86,11 +86,10 @@ app.put('/posts/:id/downvote', function (req, res) {
   });
 });
 
-app.post('/login', function (req, res) {
+app.post('/login/submit', function (req, res) {
   let hashed = bcrypt.hash(req.body.password, 10);
   console.log(hashed);
   hashed.then(function (result) {
-
     let body = {
       'username': req.body.username,
       'password': result,
@@ -104,14 +103,21 @@ app.post('/login', function (req, res) {
   });
 });
 
-/*   bcrypt.hash(req.body.password, 10, function (err, hash) {
-    console.log(req.body.password)
-    let hashed = {
-      "password": hash
-    }; */
-//  });
-
-
+app.post('/login/login', function(req, res) {
+  conn.query('SELECT id, username, password, email FROM users WHERE username = ?', [req.body.username], function(err, usernames){
+    databaseError();
+    if(usernames.length === 0){
+      console.log('Bad username or password');
+      return;
+    };
+    let user = usernames[0];
+    if(bcrypt.compareSync(req.body.password, user.password) === true) {
+      console.log('Beleptel')
+    }else {
+      console.log('Nem leptel be')
+    }
+  });
+});
 
 app.listen(3000, function (){
   console.log('App is running');
