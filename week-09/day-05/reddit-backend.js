@@ -44,7 +44,7 @@ app.put('/posts/:id/upvote', function (req, res) {
 app.put('/posts/:id/downvote', function (req, res) {
   posts.forEach(e => e.id === parseInt(req.params.id, 10) ? e.score-- : e.score);
   res.json();
-})
+});
 
 app.delete('/posts/:id', function (req, res) {
   let index = 0;
@@ -55,7 +55,7 @@ app.post('/posts', function (req, res) {
   req.body.id = Math.max(0, Math.max.apply(null, posts.map(post => post.id))) + 1;
   req.body.timestamp = Date.now();
   posts.push(req.body);
-})
+});
 
 app.listen(3000, function (){
   console.log('app is running');
