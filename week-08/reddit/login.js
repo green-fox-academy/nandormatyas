@@ -5,12 +5,15 @@ let link = 'http://localhost:3000/login';
 
 
 let submitButton = document.querySelector('.submit_button');
-submitButton.addEventListener("click", submit);
-
+submitButton.addEventListener("click", function () {
+  submit(link);
+});
 let loginButton = document.querySelector('.login_button');
-loginButton.addEventListener('click', login);
+loginButton.addEventListener('click', function () {
+  login(link);
+});
 
-function postData(data){
+function postData(data, link){
   var http = new XMLHttpRequest();
   http.open('POST', link, true);
   http.setRequestHeader('Accept', 'application/json');
@@ -42,13 +45,15 @@ function finalizeData() {
   return forSend
 };
 
-function submit() {
-  postData(finalizeData());
-  console.log(finalizeData());
+function submit(submitLink) {
+  let link = submitLink + '/submit';
+  postData(finalizeData(), link);
 };
 
-function login () {
+function login (loginLink) {
+  let link = loginLink + '/login';
   let user = finalizeData();
   delete user.email;
-  postData(user);
+  console.log(user);
+  postData(user, link);
 };
