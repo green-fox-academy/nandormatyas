@@ -1,24 +1,23 @@
 'use strict';
 
-var link = 'https://time-radish.glitch.me/posts';
+//var link = 'https://time-radish.glitch.me/posts/';
+var link = 'http://localhost:3000/posts/';
 
 function connectAndGetDataBackParsed(){
   var http = new XMLHttpRequest();
   http.open('GET', link, true);
   http.setRequestHeader('Accept', 'application/json');
   http.onreadystatechange = function(){
-    if (http.readyState === XMLHttpRequest.DONE) {
+    if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
       console.log('ready state: done');
-      if (http.status === 200) {
-        console.log('http status: ok');
-        var data = http.responseText;
-        data = JSON.parse(data).posts;
-        console.log(data);
-        threadCreator(data);
-      } else {
-        console.log('There was a problem with the request.');
-      }
-    }
+      console.log('http status: ok');
+      var data = http.responseText;
+      data = JSON.parse(data).posts;
+      console.log(data);
+      threadCreator(data);
+    } else {
+      console.log('There was a problem with the request.');
+    };
   }
   http.send();
 }
@@ -72,11 +71,12 @@ function counterSetUp (index, data){
   buttonUp.classList.add('button_up', 'index' + index, data[index].id);
 
   buttonUp.onclick = function() {
+      var currentId = score.classList.item(2);
       score.innerHTML++;
       var postScore = {
+        'id': currentId,
         'score': score.innerHTML,
       }
-      var currentId = score.classList.item(2);
       postData(postScore, currentId, 'upvote');
   }
 
@@ -91,11 +91,12 @@ function counterSetUp (index, data){
   buttonDown.classList.add('button_down', 'index' + index, data[index].id);
 
   buttonDown.onclick = function () {
-        score.innerHTML--;
-        var postScore = {
-          'score': score.innerHTML,
-        }
         var currentId = score.classList.item(2);
+        score.innerHTML--;
+        var postScore =  {
+          'id': currentId,
+          'score': score.innerHTML,
+        };
         postData(postScore, currentId, 'downvote');
     }
   }
@@ -143,7 +144,7 @@ function threadCreator (data){
 
 function postData(data, id, vote){
   var http = new XMLHttpRequest();
-  http.open('PUT','https://time-radish.glitch.me/posts/' + id + '/' + vote , true);
+  http.open('PUT',link + id + '/' + vote , true);
   http.setRequestHeader('Accept', 'application/json');
   http.setRequestHeader('Content-Type', 'application/json');
   http.onreadystatechange = function(){
@@ -160,9 +161,9 @@ function postData(data, id, vote){
 }
 
 function deleteData(id) {
-  var link = 'https://time-radish.glitch.me/posts/' + id;
+  var linkDel = link + id;
   var http = new XMLHttpRequest();
-  http.open("DELETE", link, true);
+  http.open("DELETE", linkDel, true);
   http.setRequestHeader('Accept', 'application/json');
   http.onreadystatechange = function () {
     if (http.readyState === XMLHttpRequest.DONE && http.status == "200") {

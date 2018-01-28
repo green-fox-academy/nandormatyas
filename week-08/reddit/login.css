@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-image: url("assets/space.jpg");
+  background-size: cover;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 8px;
+}
+.image {
+  grid-row: 1 / 4;
+  grid-column: 1 / 4;
+  width: 100%;
+  height: 100%;
+  background: url("assets/Planet.gif") no-repeat center center fixed;
+  background-size: cover;
+  opacity: 0.7;
+
+}
+.head {
+  grid-column: 1 / 4;
+  grid-row: 1 / 1;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 160px; 
+  z-index: 50;
+  opacity: 0.7;
+}
+.refresh {
+  margin: auto;
+  font-family: Lato; 
+  color: white;
+  text-decoration: none;
+  letter-spacing: 45px;
+  font-size: 30px;
+
+}
+.new_account {
+  grid-column: 2 / 2;
+  grid-row: 2 / 2;
+  width: 70%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid black;
+  box-shadow: 2px 2px 2px 0px black;
+  background: rgb(132, 175, 132);
+  opacity: 0.9;
+}
+
+.submit_button{
+  text-decoration: none;
+  margin: 10px;
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
+  box-shadow: 1px 1px 1px 0px black;
+  cursor: pointer;
+  align-self: center;
+}
+.submit_button:active {
+  box-shadow: inset 1px 1px 1px 0px black;
+}
+.submit_button:hover {
+  background: rgb(215, 240, 179);
+  color: rgb(132, 175, 132);
+  box-shadow: inset 2px 2px 5px 3px rgb(132, 175, 132);
+}
+
+label {
+  text-align: center;
+  margin: 20px;
+  font-family: Lato; 
+  letter-spacing: 3px;
+  font-size: 20px; 
+}
+input {
+  background: lightblue;
+  box-shadow: inset 1px 1px 1px 0px black;
+}
+
+.login_button{
+  text-decoration: none;
+  margin: 10px;
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
+  box-shadow: 1px 1px 1px 0px black;
+  cursor: pointer;
+  align-self: center;
+}
+.login_button:active {
+  box-shadow: inset 1px 1px 1px 0px black;
+}
+.login_button:hover {
+  background: rgb(215, 240, 179);
+  color: rgb(132, 175, 132);
+  box-shadow: inset 2px 2px 5px 3px rgb(132, 175, 132);
+}
+.new_account .login_button:hover + .image{
+  width: 500px;
+  height: 500px;
+  opacity: 0.7;
+  transition-property: all;
+  transition-duration: 5s;
+
+}

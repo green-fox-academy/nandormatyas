@@ -1,6 +1,8 @@
 'use strict';
 
-var link = 'https://time-radish.glitch.me/posts';
+//var link = 'https://time-radish.glitch.me/posts';
+var link = 'http://localhost:3000/posts/';
+
 
 var submitButton = document.querySelector('.submit_button');
 submitButton.addEventListener("click", submit);
@@ -33,19 +35,22 @@ function finalizeData() {
     'title': postText.value,
     'url': postUrl.value,
     'owner':postUser.value,
+    'score': '0',
   }
   return forSend
 }
 function spammer(howMany) {
   for(var i = 0; i < howMany; i++){
     var data = {
-      'title':'Iam luerat poenas frater Numitoris, et omne pastorum gemino sub duce vulgus erat Contrahere agrestes et moenia ponere utrique convenit. Ambigitur moenia ponat uter Nil opus est’ dixit ’certamine’ Romulus ’ullo: magna fides avium est, experiamur aves!’Res placet: Alter adit nemorosi saxa Palati ',
+      'title':'[nodemon] app crashed - waiting for file changes before starting...',
       'url': 'www.9gag.com',
+      'owner': 'Tha Postman',
+      'score': 0,
     }
     setInterval(postData(data), 1000);
   }
 }
-//spammer(12)
+spammer(1)
 
 function submit() {
   postData(finalizeData());
