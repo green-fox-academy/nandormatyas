@@ -6,10 +6,10 @@
 
 function Animals (sound) {
     this.sound = sound;
-}
+};
 Animals.prototype.say = function () {
   console.log(this.sound);
-}
+};
 const dog = new Animals('woof');
 
 dog.say()
