@@ -1,6 +1,6 @@
 'use strict';
 
-var link = 'http://localhost:3000/posts/';
+var link = 'http://localhost:3000/songs/';
 
 function connectAndGetDataBackParsed(){
   var http = new XMLHttpRequest();
@@ -11,19 +11,56 @@ function connectAndGetDataBackParsed(){
       console.log('ready state: done');
       console.log('http status: ok');
       var data = http.responseText;
-      data = JSON.parse(data).posts;
+      data = JSON.parse(data);
       console.log(data);
-      threadCreator(data);
+      allSongs(data);
     } else {
       console.log('There was a problem with the request.');
     };
   }
   http.send();
 }
+connectAndGetDataBackParsed();
 
-function songsSetUp(index, data){
-  var playlist = document.querySelector('.playlist');
-  var songs = document.createElement('div');
+function allSongs (data) {
+  for(var i = 0; i < data.length;i++){
+    songSetUp(data, i);
+    colorPlaylist(i);
+  }
+}
+function colorPlaylist (i) {
+  let track = document.querySelectorAll('.song');
+  if(i % 2 === 0){
+   track[i].style.background = "lightgrey";  
+  }
+}
+
+function songSetUp(data, index){
+  
+  let playlist = document.querySelector('.playlist');
+  let songs = document.createElement('div');
   playlist.appendChild(songs);
-  songs.classList.add('song'); 
-};
+  songs.classList.add('song', data[index].id);
+
+  let title = document.createElement('div');
+  songs.appendChild(title);
+  title.classList.add('title');
+  title.innerHTML = data[index].title + '(' + data[index].author + ')';
+
+  let duration = document.createElement('div');
+  songs.appendChild(duration);
+  duration.classList.add('duration');
+  let minutes = Math.floor(data[index].duration / 60);
+  let seconds = data[index].duration - minutes * 60;
+  duration.innerHTML = minutes + ':' + seconds;
+
+  songs.onclick = function () {
+    let currentId = songs.classList.item(1)
+    let source = document.getElementById('audio_source');
+    source.src = songs.filename;
+    //source.load();
+  }
+}
+
+
+
