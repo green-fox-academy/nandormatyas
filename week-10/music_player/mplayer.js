@@ -19,15 +19,15 @@ function connectAndGetDataBackParsed(){
     };
   }
   http.send();
-}
+};
 connectAndGetDataBackParsed();
 
 function allSongs (data) {
   for(var i = 0; i < data.length;i++){
     songSetUp(data, i);
     colorPlaylist();
-  }
-}
+  };
+};
 function colorPlaylist () {
   let track = document.querySelectorAll('.song');
   for(let i = 0; i < track.length; i++){
@@ -35,9 +35,13 @@ function colorPlaylist () {
     track[i].style.background = 'lightgrey';  
     }else{
       track[i].style.background = 'rgb(128, 124, 124)';
-    }
-  }
-}
+    };
+  };
+};
+function displayCurrentTrackData (data, index) {
+  let currentTrack = document.querySelector('.info');
+  currentTrack.innerHTML = data[index].author + '<br>' + data[index].title;
+};
 
 function songSetUp(data, index){
   
@@ -62,21 +66,28 @@ function songSetUp(data, index){
     colorPlaylist();
     let audio = document.querySelector('audio');
     songs.setAttribute('style', 'background: green;');
-    let currentId = songs.classList.item(1);
+    //let currentId = songs.classList.item(1);
     let source = document.getElementById('audio_source');
     source.src = 'songs/' + data[index].filename;
     displayCurrentTrackData(data, index);
     audio.load();
-  }
-}
-function displayCurrentTrackData (data, index) {
-  let currentTrack = document.querySelector('.info');
-  currentTrack.innerHTML = data[index].author + '<br>' + data[index].title;
+    audio.play();
+    audio.addEventListener('ended', function () {
+      nextTrack(data, index);
+    });    
+  };
+};
+function nextTrack (data, index) {
+  index++
+  let audio = document.querySelector('audio');
+  let source = document.getElementById('audio_source');
+  source.src = 'songs/' + data[index].filename;
+  displayCurrentTrackData(data, index);
+  colorPlaylist();
+  //songs.setAttribute('style', 'background: green;');
+  audio.load();
+  audio.play();
+
 }
 
-
-/* function resetTrackColor () {
-  let songs = document.querySelectorAll('.song');
-  songs.forEach(e => e.setAttribute('style', 'background: \'\';'));
-} */
 
