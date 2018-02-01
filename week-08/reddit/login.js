@@ -11,6 +11,7 @@ submitButton.addEventListener("click", function () {
 let loginButton = document.querySelector('.login_button');
 loginButton.addEventListener('click', function () {
   login(link);
+  
 });
 
 function postData(data, link){
@@ -29,7 +30,7 @@ function postData(data, link){
     }
   }
   data = JSON.stringify(data);
-  console.log(data);
+  //console.log(data);
   http.send(data);
 };
 
@@ -47,6 +48,7 @@ function finalizeData() {
 
 function submit(submitLink) {
   let link = submitLink + '/submit';
+  planetFly();
   postData(finalizeData(), link);
 };
 
@@ -57,3 +59,10 @@ function login (loginLink) {
   console.log(user);
   postData(user, link);
 };
+
+function planetFly () {
+  let planet = document.querySelector('.image');
+  console.log(planet);
+  planet.setAttribute('style', 'height: 1%;');
+  console.log('bye planet');
+}
