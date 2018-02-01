@@ -62,7 +62,5 @@ function login (loginLink) {
 
 function planetFly () {
   let planet = document.querySelector('.image');
-  console.log(planet);
   planet.setAttribute('style', 'height: 1%;');
-  console.log('bye planet');
 }
