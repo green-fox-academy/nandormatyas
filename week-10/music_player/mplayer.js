@@ -25,13 +25,17 @@ connectAndGetDataBackParsed();
 function allSongs (data) {
   for(var i = 0; i < data.length;i++){
     songSetUp(data, i);
-    colorPlaylist(i);
+    colorPlaylist();
   }
 }
-function colorPlaylist (i) {
+function colorPlaylist () {
   let track = document.querySelectorAll('.song');
-  if(i % 2 === 0){
-   track[i].style.background = "lightgrey";  
+  for(let i = 0; i < track.length; i++){
+    if(i % 2 === 0){
+    track[i].style.background = 'lightgrey';  
+    }else{
+      track[i].style.background = 'rgb(128, 124, 124)';
+    }
   }
 }
 
@@ -55,13 +59,24 @@ function songSetUp(data, index){
   duration.innerHTML = minutes + ':' + seconds;
 
   songs.onclick = function () {
+    colorPlaylist();
     let audio = document.querySelector('audio');
+    songs.setAttribute('style', 'background: green;');
     let currentId = songs.classList.item(1);
     let source = document.getElementById('audio_source');
     source.src = 'songs/' + data[index].filename;
+    displayCurrentTrackData(data, index);
     audio.load();
   }
 }
+function displayCurrentTrackData (data, index) {
+  let currentTrack = document.querySelector('.info');
+  currentTrack.innerHTML = data[index].author + '<br>' + data[index].title;
+}
 
 
+/* function resetTrackColor () {
+  let songs = document.querySelectorAll('.song');
+  songs.forEach(e => e.setAttribute('style', 'background: \'\';'));
+} */
 
