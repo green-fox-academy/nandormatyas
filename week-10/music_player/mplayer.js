@@ -55,10 +55,11 @@ function songSetUp(data, index){
   duration.innerHTML = minutes + ':' + seconds;
 
   songs.onclick = function () {
-    let currentId = songs.classList.item(1)
+    let audio = document.querySelector('audio');
+    let currentId = songs.classList.item(1);
     let source = document.getElementById('audio_source');
-    source.src = songs.filename;
-    //source.load();
+    source.src = 'songs/' + data[index].filename;
+    audio.load();
   }
 }
 

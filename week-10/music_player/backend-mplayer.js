@@ -63,6 +63,13 @@ function fillDbWithSongs () {
   }));
 }
 
+app.use(express.static(__dirname));
+
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/mplayer.html');
+});
+
+
 app.get('/songs', function(req, res) {
   conn.query('SELECT * FROM songs;', function(err, allSongs){
     databaseError();
