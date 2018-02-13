@@ -1,0 +1,12 @@
+{
+  "name": "nodedock",
+  "version": "1.0.0",
+  "description": "first attempt",
+  "main": "hello.js",
+  "scripts": {
+    "start": "node hello.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1"
+  }
+}
