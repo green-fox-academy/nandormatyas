@@ -1,0 +1,23 @@
+{
+  "family": "hello-world",
+  "containerDefinitions": [
+      {
+          "name": "hello-world",
+          "image": "710533060376.dkr.ecr.eu-central-1.amazonaws.com/hello-world",
+          "cpu": 10,
+          "memory": 500,
+          "portMappings": [
+              {
+                  "containerPort": 3000,
+                  "hostPort": 80
+              }
+          ],
+          "entryPoint": [
+              "node hello.js",
+              "-D",
+              "FOREGROUND"
+          ],
+          "essential": true
+      }
+  ]
+}
